@@ -41,17 +41,10 @@
     <link rel="stylesheet" href="public_html/css/header.css">
     <link rel="stylesheet" href="public_html/css/login.css">
 
-    <link rel="stylesheet" href="public_html/css/index.css">
-    <link rel="stylesheet" href="../public_html/css/upload_files.css">
-    <link rel="stylesheet" href="public_html/css/comments.css">
 <?php
     include 'views/login_view.php'; 
-    include 'views/upload_file_view.php';
     include 'views/main_view.php';
 ?>
 
     <script type='text/javascript' src='public_html/js/login.js'></script>
-    <script type='text/javascript' src='public_html/js/images.js'></script>
-    <script type='text/javascript' src='public_html/js/comments.js'></script>
-    <script type='text/javascript' src='public_html/js/upload_files.js'></script>
 

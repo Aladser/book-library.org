@@ -2,7 +2,7 @@
 <section id='loginInputSection' class='modal'>
     <div class='modalWindow loginWindow'>
         <h3 class='modal__header'> Авторизация</h3>
-        <form method="POST" id='loginWindow__form'>
+        <form method="POST" class='loginWindow__form' id='loginWindow__form'>
             <input type='button' class='modal__closeBtn loginWindow__closeBtn' value='x'>
 
             <div class='loginWindow__formRow'>
