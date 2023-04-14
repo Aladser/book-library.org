@@ -23,6 +23,7 @@
     }
 
     // лог запуска
+    /*
     $today = date("Y-m-d H:i:s");
     if(!file_exists(LOGS)){
         file_put_contents(LOGS, "файл логов создан $today;\n");
@@ -34,6 +35,7 @@
     $arr = file(LOGS);
     if(count($arr)> 100) unset($arr[0]);
     file_put_contents(LOGS, $arr);
+    */
 ?>
     <link rel="stylesheet" href="public_html/css/reset_cs.css">
     <link rel="stylesheet" href="public_html/css/general.css">
