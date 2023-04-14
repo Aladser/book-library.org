@@ -30,6 +30,7 @@
             <?php endif; ?>
         </form>
     </div>
+    
     <script type='text/javascript' src='../public_html/js/registration.js'></script>
 </body>
 </html>
