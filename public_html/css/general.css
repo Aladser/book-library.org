@@ -1,5 +1,5 @@
 /* кнопка */
-.gallery-btn{
+.page-btn{
     background-color: white;
     color: rgb(58, 179, 249);
     border: 1px solid rgb(58, 179, 249);
@@ -7,11 +7,11 @@
     height: 2rem;
     width: 6rem;
 }
-.gallery-btn:hover{
+.page-btn:hover{
     color: white;
     background-color: rgb(58, 179, 249);
 }
-.gallery-btn:active{
+.page-btn:active{
     cursor: default;
     background-color: white;
     color: rgb(58, 179, 249);

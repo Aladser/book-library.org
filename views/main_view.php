@@ -12,10 +12,10 @@
         <p class='header__title'>Книги</p>
         <!-- кнопка войти-выйти -->
         <?php if(isset($_SESSION['auth'])): ?>
-            <input type="button" class='gallery-btn header__login-btn' id='login-btn' value='Выйти'>
+            <input type="button" class='page-btn header__login-btn' id='login-btn' value='Выйти'>
             <div class='header__username' id='header__username'><?=$user?></div>
         <?php else: ?>
-            <input type="button" class='gallery-btn header__login-btn' id='login-btn' value='Войти'>
+            <input type="button" class='page-btn header__login-btn' id='login-btn' value='Войти'>
         <?php endif; ?>
     </header>
 </body>
