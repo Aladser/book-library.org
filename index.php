@@ -53,7 +53,6 @@
     include 'engine/auth/authreg.php';
     include 'views/login_view.php'; 
     include 'views/main_view.php';
-
 ?>
 
     <script type='text/javascript' src='public_html/js/login.js'></script>
