@@ -4,9 +4,11 @@
     // проверка куки
     $auth = $_SESSION['auth'] ?? null;
     $userRole = null;
+    // авторизация пользователя из БД или ВК
     if(is_null($auth)){
         $cookieLogin = $_COOKIE["login"] ?? null;
         $cookieHash = $_COOKIE["hash"] ?? null;
+        // БД
         if(!is_null($cookieLogin) && !is_null($cookieHash)){
             if($usersModel->checkUserHash($cookieLogin, $cookieHash)){
                 $user = $cookieLogin;
@@ -16,26 +18,22 @@
                 $_SESSION['auth'] = 1;
             }
         }
+        elseif(isset($_COOKIE["uservk"])){
+            $cookieName = $_COOKIE["name"] ?? null;
+            $user = $cookieName;
+            $userRole = 'uservk';
+            $_SESSION['auth'] = 1;
+        }
     }
-    else if(isset($_SESSION['login'])){
+    elseif(isset($_SESSION['login'])){
         $user = $_SESSION['login'];
         $userRole = $usersModel->getUserRole($user);
     }
-
-    // лог запуска
-    /*
-    $today = date("Y-m-d H:i:s");
-    if(!file_exists(LOGS)){
-        file_put_contents(LOGS, "файл логов создан $today;\n");
+    // авторизация вк
+    elseif(isset($_SESSION['userid'])){
+        $user = $_SESSION['first_name'].' '.$_SESSION['last_name'];
+        $userRole = 'uservk';
     }
-    else{
-        file_put_contents(LOGS, "запуск программы $today;\n", FILE_APPEND);
-    }
-    // ограничение размера файла логов
-    $arr = file(LOGS);
-    if(count($arr)> 100) unset($arr[0]);
-    file_put_contents(LOGS, $arr);
-    */
 ?>
     <link rel="stylesheet" href="public_html/css/reset_cs.css">
     <link rel="stylesheet" href="public_html/css/general.css">
@@ -44,6 +42,7 @@
     <link rel="stylesheet" href="public_html/css/login.css">
 
 <?php
+    include 'engine/auth/authreg.php';
     include 'views/login_view.php'; 
     include 'views/main_view.php';
 ?>

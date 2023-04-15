@@ -11,5 +11,10 @@ define('NAME_DB','book-library');
 define('USER_DB', 'admin');
 define('PASS_DB','@admin@');
 
+define('VK_CLIENT_ID', 51613986);
+define('VK_CLIENT_SECRET','pL1sG0ctOLPHZiiPtZkj');
+define('VK_REDIRECT_URI','http://book-library.org/engine/auth/auth_vk.php');
+define('VK_VERSION', 5.131);
+
 $db = new DB(HOST_DB, NAME_DB, USER_DB, PASS_DB);
 $usersModel = new UsersModel($db);

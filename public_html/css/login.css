@@ -80,20 +80,3 @@
     color: grey;
     font-size: 0.8rem;
 }
-.loginWindow__text-delimiter::before, .loginWindow__text-delimiter::after{
-    content:'';
-    display:inline-block;
-    vertical-align:middle;
-    box-sizing:border-box;
-    width:35%;
-    height:2px;
-    background: rgb(200,200,200); 
-    border:solid #FFF;
-    border-width:0 1rem 0;
-}
-.loginWindow__text-delimiter::before{
-    margin-left:-35%;
-}
-.loginWindow__text-delimiter::after{
-    margin-right:-35%;
-}

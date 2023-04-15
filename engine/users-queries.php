@@ -12,8 +12,23 @@ function logIn($usersModel, $login, $saveAuth=false){
         setcookie('login', $login, time()+60*60*24, '/');
         setcookie('hash', $usersModel->getUserHash($login), time()+60*60*24, '/');
     }
-    $_SESSION['auth'] = 1;
+    $_SESSION['auth'] = 'db';
     $_SESSION['login'] = $login;
+}
+
+// лог
+function writeLog($msg){
+    $today = date("Y-m-d H:i:s");
+    if(!file_exists(LOGS)){
+        file_put_contents(LOGS, "$today $msg;\n");
+    }
+    else{
+        file_put_contents(LOGS, "$today $msg;\n", FILE_APPEND);
+    }
+    // ограничение размера файла логов
+    $arr = file(LOGS);
+    if(count($arr)> 100) unset($arr[0]);
+    file_put_contents(LOGS, $arr);
 }
 
 // аутентификация
@@ -29,14 +44,17 @@ if(isset($_POST['auth']))
                 $rslt = 'auth';
             }
             else {
+                writeLog('Неудачная попытка входа: неверный пароль');
                 $rslt = 'wrongpass';
             }
         }
         else {
+            writeLog('Неудачная попытка входа: указанный пользователь не существует');
             $rslt = 'nouser';
         }
     }
     else{
+        writeLog('Неудачная попытка входа: двойная аутентификация');
         $rslt = 'bootforce';
     }
     echo $rslt;
@@ -76,7 +94,13 @@ if(isset($_POST['newLogin'])){
 // Выход
 if(isset($_GET['logout'])){
     unset($_SESSION['auth']);
+    unset($_SESSION['userid']);
+    unset($_SESSION['first_name']);
+    unset($_SESSION['last_name']);
+    unset($_SESSION['login']);
     setcookie("login", "", time()-3600, '/');
     setcookie("hash", "", time()-3600, '/');
+    setcookie('uservk', "", time()-1000, '/');
+    setcookie('name', "", time()-1000, '/');
     header('Location: ../index.php');
 }
