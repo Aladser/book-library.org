@@ -28,9 +28,12 @@
             <container class='library-container'>
                 <div class='book'>
                     <?php if($userRole === 'uservk'): ?>
-                        <img class='book_image' src="data/img/pikovaya_dama.jpeg" alt="Пиковая дама">
+                         <div class='book_image-block'>
+                            <img class='book_image' src="data/img/pikovaya_dama.jpeg" alt="Пиковая дама">
+                        </div>
                     <?php endif; ?>
                     <br>
+                    <div class='book__info'>
                     <p class='book__header'>
                         <span class='book__author'>Александр Пушкин</span>
                         &nbsp;-&nbsp;
@@ -44,12 +47,16 @@
                         Монохромные иллюстрации Дементия Алексеевича Шмаринова создают атмосферу мистического зимнего Петербурга, где Германн, 
                         во власти страстей, искушает свою судьбу. Вереница событий приводит к исходу, фатальному для главного героя.
                     </p>
+                    </div>
                 </div>
                 <div class='book'>
                     <?php if($userRole === 'uservk'): ?>
-                        <img class='book_image' src="data/img/buduschee.jpeg" alt="Будущее">
+                        <div class='book_image-block'>
+                            <<img class='book_image' src="data/img/buduschee.jpeg" alt="Будущее">
+                        </div>
                     <?php endif; ?>
                     <br>
+                    <div class='book__info'>
                     <p class='book__header'>
                         <span class='book__author'>Дмитрий Глуховский</span>
                         &nbsp;-&nbsp;
@@ -62,12 +69,16 @@
                         Но будут ли они такими же, как мы? Нужны ли дети, если за них придется пожертвовать бессмертием? Нужна ли семья тем, кто не может завести детей? 
                         Нужна ли душа людям, тело которых не стареет?.
                     </p>
+                    </div>
                 </div>
                 <div class='book'>
                     <?php if($userRole === 'uservk'): ?>
-                        <img class='book_image' src="data/img/zelenaya_milya.jpeg" alt="Зеленая миля">
+                        <div class='book_image-block'>
+                            <img class='book_image' src="data/img/zelenaya_milya.jpeg" alt="Зеленая миля">
+                        </div>
                     <?php endif; ?>
                     <br>
+                    <div class='book__info'>
                     <p class='book__header'>
                         <span class='book__author'>Стивен Кинг</span>
                         &nbsp;-&nbsp;
@@ -81,6 +92,7 @@
                         самым дерзким из ужасных опытов Стивена Кинга — с историей, что начинается на Дороге Смерти и уходит в глубины самых чудовищных тайн 
                         человеческой души...
                     </p>
+                    </div>
                 </div>
             </container>
         <?php endif; ?>

@@ -1,42 +1,67 @@
-.book{
-    display: block;
+.main-info__header{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    text-align: center;
+}
+.main-info{
     width: 60%;
     margin: auto;
 }
+.main-info__text{
+    text-align: center;
+}
+
+.book{
+    display: flex;
+    width: 60rem;
+    margin: auto;
+}
+
+.book_image-block{
+    width: 30rem;
+}
 
 .book_image{
-    width: 18rem;
-    height: 24rem;
-    
-    float: left;
-    padding-top: 1rem;
-    padding-right: 1rem;
+    width: 100%;
+    height: auto;
+}
+
+.book__info{
+    width: 60rem;
 }
 
 .book__desciption{
     height: 24rem;
     font-size: 1.2rem;
+    padding: 0 1rem;
     padding-bottom: 2rem;
-}
-
-.main-info{
-    padding-bottom: 3rem;
-    border: 1px solid rgb(58, 179, 249);
-    text-align: center;
-    width: 60%;
-    margin: auto;
-}
-
-.main-info__header{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 2rem;
 }
 
 .book__header{
     padding-top: 1rem;
+    text-align: center;
 }
 
 .book__header *{
     font-weight: bold;
     font-size: 2rem;
+}
+
+@media (max-width:1000px){
+    .book{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    .book__info{
+        width: 100%;
+        height: auto;
+    }
+    .book__desciption{
+        height: auto;
+    }
+    .book_image-block{
+        width: 50%;
+        margin: auto;
+    }
 }
