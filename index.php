@@ -2,11 +2,21 @@
     require_once('config/config.php');
     session_start();
     // проверка куки
-    $auth = $_SESSION['auth'] ?? null;
     $user = null;
     $userRole = null;
-    // авторизация пользователя из БД или ВК
-    if(is_null($auth)){
+    // авторизация через сессию
+    if(isset($_SESSION['login'])){
+        $user = $_SESSION['login'];
+        $userRole = $usersModel->getUserRole($user);
+    }
+    // авторизация вк через сессию
+    elseif(isset($_SESSION['userid'])){
+        $user = $_SESSION['first_name'].' '.$_SESSION['last_name'];
+        $userRole = 'uservk';
+        $_SESSION['auth'] = 1;
+    }
+    // авторизация пользователя из БД/ВК через куки
+    elseif(!isset($_SESSION['auth'])){
         $cookieLogin = $_COOKIE["login"] ?? null;
         $cookieHash = $_COOKIE["hash"] ?? null;
         // БД
@@ -26,17 +36,6 @@
             $_SESSION['auth'] = 1;
         }
     }
-    elseif(isset($_SESSION['login'])){
-        $user = $_SESSION['login'];
-        $userRole = $usersModel->getUserRole($user);
-    }
-    // авторизация вк
-    elseif(isset($_SESSION['userid'])){
-        $user = $_SESSION['first_name'].' '.$_SESSION['last_name'];
-        $userRole = 'uservk';
-        $_SESSION['auth'] = 1;
-    }
-    $auth = $_SESSION['auth'] ?? null;
 
     //****** токены *****         
     $token = hash('gost-crypto', random_int(0,999999));
