@@ -7,7 +7,7 @@ require_once(dirname(__DIR__, 1).'/engine/DB.php');
 define('LOGS', dirname(__DIR__, 1).'\data\logs.txt');
 
 define('HOST_DB', 'localhost');
-define('NAME_DB','galleryDB');
+define('NAME_DB','book-library');
 define('USER_DB', 'admin');
 define('PASS_DB','@admin@');
 

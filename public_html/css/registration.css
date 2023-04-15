@@ -32,10 +32,10 @@
     background-color: white;
     outline: none;
     border: 1px solid grey;
-    cursor: pointer;
 }
-.newUserForm__btn:hover{
+.newUserForm__btn:hover:not(:disabled){
     background-color: rgb(220, 220, 220);
+    cursor: pointer;
 }
 .newUserForm__btn:active{
     background-color: white;

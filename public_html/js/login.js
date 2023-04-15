@@ -32,3 +32,11 @@ document.querySelector('#loginWindow__form').addEventListener('submit', function
         }
     });
 });
+
+let loginInput = document.querySelector('#loginInput');
+let passwordInput = document.querySelector('#passwordInput');
+let loginSendBtn = document.querySelector('#loginWindow__sendBtn');
+const checkInputFields = () => loginSendBtn.disabled = loginInput.value!=='' && passwordInput.value!=='' ? false : true;
+checkInputFields();
+loginInput.oninput = checkInputFields;
+passwordInput.oninput =  checkInputFields;
