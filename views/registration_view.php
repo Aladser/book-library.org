@@ -18,7 +18,7 @@
 <body>
     <br>
     <div class='registration-container'>
-    <h3 class='registration-container__header'>Регистрация нового пользователя</h3>
+        <h3 class='registration-container__header'>Регистрация нового пользователя</h3>
         <form class='newUserForm' method="POST" action='../engine/users-queries.php'>
             <input type="text" id='newUserForm__loginInput' class='newUserForm__input' name='newLogin' placeholder="Логин">
             <br>

@@ -3,6 +3,7 @@
     session_start();
     // проверка куки
     $auth = $_SESSION['auth'] ?? null;
+    $user = null;
     $userRole = null;
     // авторизация пользователя из БД или ВК
     if(is_null($auth)){
@@ -33,23 +34,26 @@
     elseif(isset($_SESSION['userid'])){
         $user = $_SESSION['first_name'].' '.$_SESSION['last_name'];
         $userRole = 'uservk';
+        $_SESSION['auth'] = 1;
     }
+    $auth = $_SESSION['auth'] ?? null;
 
     //****** токены *****         
     $token = hash('gost-crypto', random_int(0,999999));
     $_SESSION["CSRF"] = $token;
-    var_dump($_SESSION);
 ?>
     <link rel="stylesheet" href="public_html/css/reset_cs.css">
     <link rel="stylesheet" href="public_html/css/general.css">
     <link rel="stylesheet" href="public_html/css/modal.css">
     <link rel="stylesheet" href="public_html/css/header.css">
     <link rel="stylesheet" href="public_html/css/login.css">
+    <link rel="stylesheet" href="public_html/css/main-view.css">
 
 <?php
     include 'engine/auth/authreg.php';
     include 'views/login_view.php'; 
     include 'views/main_view.php';
+
 ?>
 
     <script type='text/javascript' src='public_html/js/login.js'></script>
