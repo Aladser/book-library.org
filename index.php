@@ -17,7 +17,7 @@
                 $userRole = $usersModel->getUserRole($cookieLogin);
                 $_SESSION['auth'] = 1;
             }
-        }
+        }// ВК
         elseif(isset($_COOKIE["uservk"])){
             $cookieName = $_COOKIE["name"] ?? null;
             $user = $cookieName;
@@ -34,6 +34,11 @@
         $user = $_SESSION['first_name'].' '.$_SESSION['last_name'];
         $userRole = 'uservk';
     }
+
+    //****** токены *****         
+    $token = hash('gost-crypto', random_int(0,999999));
+    $_SESSION["CSRF"] = $token;
+    var_dump($_SESSION);
 ?>
     <link rel="stylesheet" href="public_html/css/reset_cs.css">
     <link rel="stylesheet" href="public_html/css/general.css">

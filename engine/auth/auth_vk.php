@@ -21,6 +21,7 @@ if (isset($response->error)) {
 $token = $response->access_token; // Токен
 $userId = $response->user_id; // ID авторизовавшегося пользователя
 $_SESSION['userid'] = $userId;
+$_SESSION['vktoken'] = $response->access_token;
 	
 // Формируем запрос
 $params = array(

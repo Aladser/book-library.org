@@ -20,3 +20,10 @@
 .hidden{
     display: none;
 }
+
+.page-social-btn-text-delimiter{
+    padding: 1rem 0;
+    color: grey;
+    font-size: 0.8rem;
+    text-align: center;
+}

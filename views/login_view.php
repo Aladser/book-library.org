@@ -19,18 +19,17 @@
                 <input type='submit' class='loginWindow__btn' id='loginWindow__sendBtn' value='Войти'>
                 <input type='button' class='loginWindow__btn' id='loginWindow__regBtn' value='Регистрация'>            
             </div>
+
             <input type="checkbox" id="loginWindow__saveAuth" class='loginWindow__saveAuth' name="saveAuth" checked/>
             <label for="loginWindow__saveAuth">Запомнить меня</label>
-            <p class='loginWindow__text-delimiter'>или войти с помощью</p>
+            
+            <p class='page-social-btn-text-delimiter'>или войти с помощью</p>
             <a href="http://oauth.vk.com/authorize?<?=$urlQuery?>"><img src="public_html/img/vk-logo.png" alt="Войти через ВК"></a>
             <div class='loginWindow__error hidden'>Ошибка</div>
-            
-            <?php
-                $token = hash('gost-crypto', random_int(0,999999));
-                $_SESSION["CSRF"] = $token;
-            ?>
-            <input type="hidden" name="auth" value="1">
+            <? // auth и токен ?>
+            <input type="hidden" name="auth" value=1>
             <input type="hidden" name="token" value="<?=$token?>">
+
         </form>
     </div>
 </section>

@@ -1,4 +1,7 @@
-<?php session_start();?>
+<?php 
+    session_start();
+    include dirname(__DIR__, 1).'/engine/auth/authreg.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public_html/css/reset_cs.css">
+    <link rel="stylesheet" href="../public_html/css/general.css">
     <link rel="stylesheet" href="../public_html/css/registration.css">
     <title>Регистрация нового пользователя</title>
 </head>
@@ -24,10 +28,14 @@
                 <input type="submit" class='newUserForm__btn newUserForm__regBtn' value="Регистрация" disabled>
                 <input type="button" class='newUserForm__btn newUserForm__backBtn' id='newPassword__backBtn' value="Назад">
             </div>
+
             <?php if(isset($_SESSION['error'])): ?>
                 <p class='newUserForm__error'><?=$_SESSION['error']?></p>
                 <?php unset($_SESSION['error']); ?>
             <?php endif; ?>
+
+            <p class='page-social-btn-text-delimiter'>или войти с помощью</p>
+            <a href="http://oauth.vk.com/authorize?<?=$urlQuery?>"><img src="/public_html/img/vk-logo.png" alt="Войти через ВК"></a>
         </form>
     </div>
     
