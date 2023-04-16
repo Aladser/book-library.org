@@ -1,7 +1,4 @@
-<?php 
-    session_start();
-    include dirname(__DIR__, 1).'/engine/auth/authreg.php';
-?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +32,7 @@
             <?php endif; ?>
 
             <p class='page-social-btn-text-delimiter'>или войти с помощью</p>
-            <a href="http://oauth.vk.com/authorize?<?=$urlQuery?>"><img src="/public_html/img/vk-logo.png" alt="Войти через ВК"></a>
+            <a href="/engine/auth/authreg.php"><img src="/public_html/img/vk-logo.png" alt="Войти через ВК"></a>
         </form>
     </div>
     

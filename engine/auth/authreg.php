@@ -7,4 +7,6 @@ $params = array(
 	'response_type' => 'code',
 	'scope'         => 'photos,offline',
 );
-$urlQuery = http_build_query( $params );
+header("Location: http://oauth.vk.com/authorize?".http_build_query( $params ));
+
+?>

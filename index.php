@@ -49,7 +49,6 @@
     <link rel="stylesheet" href="public_html/css/main-view.css">
 
 <?php
-    include 'engine/auth/authreg.php';
     include 'views/login_view.php'; 
     include 'views/main_view.php';
 ?>

@@ -24,7 +24,7 @@
             <label for="loginWindow__saveAuth">Запомнить меня</label>
             
             <p class='page-social-btn-text-delimiter'>или войти с помощью</p>
-            <a href="http://oauth.vk.com/authorize?<?=$urlQuery?>"><img src="public_html/img/vk-logo.png" alt="Войти через ВК"></a>
+            <a href="/engine/auth/authreg.php"><img src="public_html/img/vk-logo.png" alt="Войти через ВК"></a>
             <div class='loginWindow__error hidden'>Ошибка</div>
             <? // auth и токен ?>
             <input type="hidden" name="auth" value=1>
