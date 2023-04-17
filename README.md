@@ -4,7 +4,7 @@
 
 **engine/auth/auth.php** - авторизация на сайте
 
-**engine/table_models/UsersModel.php** - регистрация и авторизация через логин - пароль
+**engine/auth/auth_db.php** - регистрация и авторизация через логин - пароль
 
 **engine/auth/auth_vk.php** - авторизация вк
 
