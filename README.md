@@ -4,11 +4,11 @@
 
 **engine/auth/auth.php** - авторизация на сайте
 
-**engine/table_models/UsersModel.php** - регистрация и авторизация через логин - пароль
+**engine/auth/auth_db.php** - регистрация и авторизация через логин - пароль
 
 **engine/auth/auth_vk.php** - авторизация вк
 
-проверка CSRF-токена происходит в **engine/auth/check-csrf-url.php** для ВК и **engine/users-queries.php** для логина-пароля
+проверка CSRF-токена происходит в **engine/auth/check-csrf-url.php** для ВК и **engine/auth/auth_db.php** для логина-пароля
 
 Роль пользователя - обычный или ВК - прописывается в сессию и куки при авторизации в **файле engine/auth/auth.php**
 
