@@ -35,7 +35,7 @@
             <?php endif; ?>
 
             <p class='page-social-btn-text-delimiter'>или войти с помощью</p>
-            <a href=<?=$getVKCodeURL?>><img src="/public_html/img/vk-logo.png" alt="Войти через ВК"></a>
+            <a href=<?=$CONFIG->getVKCodeURL()?>><img src="/public_html/img/vk-logo.png" alt="Войти через ВК"></a>
         </form>
     </div>
     

@@ -5,16 +5,16 @@ require_once(dirname(__DIR__, 2).'/config/config.php');
 
 // получение access_token
 if(isset($_GET['code'])){
-	$params = GetVKAccessToken($_GET['code']);
+	$params = $CONFIG->getVKAccessToken($_GET['code']);
 	$vkToken = $params['vktoken'];
 	// запись токена в БД
-	$query = $db->query("select count(*) as count from config where name='vktoken'");
+	$query = $CONFIG->getDB()->query("select count(*) as count from config where name='vktoken'");
 	$isVKToken = $query->fetch(PDO::FETCH_ASSOC)['count'] === 1;
 	if($isVKToken){
-		$rslt = $db->exec("update config set value='$vkToken' where name='vktoken'");
+		$rslt = $CONFIG->getDB()->exec("update config set value='$vkToken' where name='vktoken'");
 	}
 	else{
-		$rslt = $db->exec("insert into config(name, value) values('vktoken', '$vkToken')");
+		$rslt = $CONFIG->getDB()->exec("insert into config(name, value) values('vktoken', '$vkToken')");
 	}
 
 	if($rslt !== 1){
@@ -42,7 +42,7 @@ elseif(isset($_COOKIE['vk_login'])){
 // получение информации о пользователе
 if($vkId){
 	$params = array(
-		'v' => VK_VERSION, // Версия API
+		'v' => ConfigClass::VK_VERSION, // Версия API
 		'access_token' => $vkToken, // Токен
 		'user_ids' => $vkId, // ID пользователей
 		'fields' => 'photo_100,about' // Список опциональных полей https://vk.com/dev/objects/user
@@ -63,11 +63,11 @@ if($vkId){
 	// добавление пользователя вк в БД, если не существует
 	foreach ($response as $userItem) {
 		$_SESSION['name'] = $userItem->first_name.' '.$userItem->last_name;
-		$isUser = $db->query("select count(*) as count from vk_users where user_login='$vkId'");
+		$isUser = $CONFIG->getDB()->query("select count(*) as count from vk_users where user_login='$vkId'");
 		$isUser = $isUser->fetch(PDO::FETCH_ASSOC)['count'] === 1;
 		if(!$isUser){
 			$name = $_SESSION['name'];
-			$rslt = $db->exec("insert into vk_users(user_login, user_name) values('$vkId', '$name')");
+			$rslt = $CONFIG->getDB()->exec("insert into vk_users(user_login, user_name) values('$vkId', '$name')");
 		}
 	}
 

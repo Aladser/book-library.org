@@ -21,25 +21,25 @@ if(isset($_POST['auth']))
 {
     if($_POST['token'] === $_SESSION['CSRF']){
         $login = $_POST['db_login'];
-        if($usersModel->existsUser($login))
+        if($CONFIG->getUsersModel()->existsUser($login))
         {
-            if($usersModel->isAuthentication($login, $_POST['password'])){
+            if($CONFIG ->getUsersModel()->isAuthentication($login, $_POST['password'])){
                 $saveAuth = isset($_POST['saveAuth']) ? true : false;
-                logIn($usersModel, $login, $saveAuth);
+                logIn($CONFIG->getUsersModel(), $login, $saveAuth);
                 $rslt = 'auth';
             }
             else {
-                $logs->writeLog('Неудачная попытка входа: неверный пароль');
+                $CONFIG ->getLogClass()->writeLog('Неудачная попытка входа: неверный пароль');
                 $rslt = 'wrongpass';
             }
         }
         else {
-            $logs->writeLog('Неудачная попытка входа: указанный пользователь не существует');
+            $CONFIG ->getLogClass()->writeLog('Неудачная попытка входа: указанный пользователь не существует');
             $rslt = 'nouser';
         }
     }
     else{
-        $logs->writeLog('Неудачная попытка входа: двойная попытка входа');
+        $CONFIG ->getLogClass()->writeLog('Неудачная попытка входа: двойная попытка входа');
         $rslt = 'bootforce';
     }
     echo $rslt;
@@ -58,13 +58,13 @@ if(isset($_POST['newLogin'])){
     {
         $_SESSION['error'] = "Логин должен быть не меньше 3-х символов и не больше 30";
     }
-    elseif($usersModel->existsUser($newLogin)){
+    elseif($CONFIG ->getUsersModel()->existsUser($newLogin)){
         $_SESSION['error'] = " $newLogin уже существует";
     }
     // добавление пользователя
     else{
-        $rslt = $usersModel->addUser($newLogin, $newPass); 
-        logIn($usersModel, $newLogin);
+        $rslt = $CONFIG ->getUsersModel()->addUser($newLogin, $newPass); 
+        logIn($CONFIG ->getUsersModel(), $newLogin);
         if($rslt === 1) $rslt = 'auth';
         else $_SESSION['error'] = " $newLogin: ошибка добавления пользователя";
     }

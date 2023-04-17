@@ -21,7 +21,7 @@
         $cookieHash = $_COOKIE["hash"] ?? null;
         // БД
         if(!is_null($cookieLogin) && !is_null($cookieHash)){
-            if($usersModel->checkUserHash($cookieLogin, $cookieHash)){
+            if($CONFIG->getUsersModel()->checkUserHash($cookieLogin, $cookieHash)){
                 $user = $cookieLogin;
                 $_SESSION['db_login'] = $cookieLogin;
                 $_SESSION['hash'] = $cookieHash;
@@ -32,7 +32,7 @@
         // ВК
         elseif(isset($_COOKIE["uservk"])){
             $name = $_COOKIE['vk_login'] ?? null;
-            $query = $db->query("select user_name from vk_users where user_login='$name'");
+            $query = $CONFIG->getDB()->query("select user_name from vk_users where user_login='$name'");
             $user = $query->fetch(PDO::FETCH_ASSOC)['user_name'];
             $userRole = 'uservk';
             $_SESSION['auth'] = 1;
