@@ -2,7 +2,7 @@
     width: 100%;
     margin-bottom: 1rem;
     position: relative;
-    height: 3rem;
+    height: 5rem;
     border-top: 1px solid rgb(58, 179, 249);
     border-bottom: 1px solid rgb(58, 179, 249);
 }
@@ -11,7 +11,7 @@
     font-size: 2rem;
     color:rgb(58, 179, 249);
     width: 7rem;
-    height: 3rem;
+    height:100%;
     padding: 0 1rem;
     display: flex;
     justify-content: center;
@@ -21,18 +21,20 @@
     position: absolute;
     top: 0;
     right: 0;
-    height: 3rem;
+    height: 100%;
     width: 10%;
     border:none;
     border-left: 1px solid rgb(58, 179, 249);
+    font-size: 1.2rem;
 }
 .header__username{
     color: rgb(58, 179, 249);
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.2rem;
-    height: 3rem;
+    font-size: 1.3rem;
+    height: 100%;
     width: 10%;
     cursor: default;
+    padding-right: 1rem;
 
     display: flex;
     justify-content: center;
@@ -57,14 +59,12 @@
 /*header */
 @media(max-width: 1200px){
     .header__users-btn{
-        font-size: 80%;
         right: 10rem+10%;
     }
 }
 @media(max-width: 950px){
     .header__login-btn{
         width: 6rem;
-        font-size: 80%;
     }
     .header__username{
         width: 8rem;
@@ -72,7 +72,6 @@
     }
     .header__users-btn{
         width: 6rem;
-        font-size: 80%;
         right: 14rem;
     }
     .header__title{
