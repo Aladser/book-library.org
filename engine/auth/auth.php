@@ -39,7 +39,6 @@
         }
     }
 
-    //****** CSRF *****  
-    $wrongCsrf = isset($_SESSION['wrong-csrf']) ? $_SESSION['wrong-csrf'] : null;       
+    //****** CSRF *****         
     $token = hash('gost-crypto', random_int(0,999999));
     $_SESSION["CSRF"] = $token;

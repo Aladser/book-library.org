@@ -2,6 +2,7 @@
     require_once('config/ConfigClass.php');
     session_start();
     include 'engine/auth/auth.php';
+    $wrongCsrf = isset($_SESSION['wrong-csrf']) ? $_SESSION['wrong-csrf'] : null;
 ?>
     <link rel="stylesheet" href="public_html/css/reset_cs.css">
     <link rel="stylesheet" href="public_html/css/general.css">
