@@ -19,3 +19,12 @@ define('VK_VERSION', 5.131);
 
 $db = new DB(HOST_DB, NAME_DB, USER_DB, PASS_DB);
 $usersModel = new UsersModel($db);
+
+// запрос получения ВК-кода
+$getVKCodeParams = array(
+	'client_id'     => VK_CLIENT_ID,
+	'redirect_uri'  => VK_REDIRECT_URI,
+	'response_type' => 'code',
+	'scope'         => 'photos,offline',
+);
+$getVKCodeURL = "http://oauth.vk.com/authorize?".http_build_query( $getVKCodeParams );
