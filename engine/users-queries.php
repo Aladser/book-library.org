@@ -54,7 +54,7 @@ if(isset($_POST['auth']))
         }
     }
     else{
-        writeLog('Неудачная попытка входа: двойная аутентификация');
+        writeLog('Неудачная попытка входа: двойная попытка входа');
         $rslt = 'bootforce';
     }
     echo $rslt;
@@ -94,9 +94,7 @@ if(isset($_POST['newLogin'])){
 // Выход
 if(isset($_GET['logout'])){
     unset($_SESSION['auth']);
-    unset($_SESSION['userid']);
-    unset($_SESSION['first_name']);
-    unset($_SESSION['last_name']);
+    unset($_SESSION['vkid']);
     unset($_SESSION['login']);
     setcookie("login", "", time()-3600, '/');
     setcookie("hash", "", time()-3600, '/');

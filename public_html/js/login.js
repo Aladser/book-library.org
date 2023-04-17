@@ -24,13 +24,20 @@ document.querySelector('#loginWindow__form').addEventListener('submit', function
             loginWindowError.classList.remove('hidden');
             if(data === 'wrongpass') loginWindowError.innerHTML = 'Неверный пароль';
             else if(data === 'nouser') loginWindowError.innerHTML = 'Пользователь не найден';
-            else loginWindowError.innerHTML = 'Двойная аутентификация';
+            else loginWindowError.innerHTML = 'Двойная попытка входа';
         }
         else{
             location.href = '/index.php';
         }
     });
 });
+
+// проверка авторизации вк
+if( document.querySelector('#loginCsrf').value !== ''){
+    loginWindowError.classList.remove('hidden');
+    loginWindowError.innerHTML = 'Двойная попытка входа';
+    loginInputSection.classList.add('modal_active');
+}
 
 // Проверка на пустоту
 let loginInput = document.querySelector('#loginInput');

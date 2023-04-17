@@ -4,6 +4,7 @@
 
 .loginWindow{
     width: 32rem;
+    padding-bottom: 1rem;
 }
 
 .loginWindow__form{
@@ -33,10 +34,10 @@
     justify-content: space-around;
     align-items: center;
 }
+
 .loginWindow__btn{
     background-color: white;
     border: 1px solid grey;
-    width: 6.5rem;
     padding: 0.4vw;
     cursor: pointer;
 }
@@ -57,12 +58,10 @@
 }
 
 .loginWindow__error{
-    margin-top: 0.5rem;
     text-align: center;
     color: red;
-    padding: 0;
-    padding-top: 0.5rem;
     font-weight: bold;
+    padding-bottom: 1rem;
 }
 
 .loginWindow__input{

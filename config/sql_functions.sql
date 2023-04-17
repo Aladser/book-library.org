@@ -1,5 +1,11 @@
 create database book-library;
 
+-- конфиг
+create table config(
+	name varchar(30) unique primary key,
+	value varchar(255)
+);
+
 -- роли пользователей
 create table user_roles(
 	role_id int auto_increment primary key,

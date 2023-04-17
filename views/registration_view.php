@@ -32,7 +32,7 @@
             <?php endif; ?>
 
             <p class='page-social-btn-text-delimiter'>или войти с помощью</p>
-            <a href="/engine/auth/authreg.php"><img src="/public_html/img/vk-logo.png" alt="Войти через ВК"></a>
+            <a href="/engine/auth/authreg.php?reg=1"><img src="/public_html/img/vk-logo.png" alt="Войти через ВК"></a>
         </form>
     </div>
     

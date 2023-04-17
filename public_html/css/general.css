@@ -22,8 +22,23 @@
 }
 
 .page-social-btn-text-delimiter{
-    padding: 1rem 0;
     color: grey;
     font-size: 0.8rem;
     text-align: center;
+    padding: 1rem 0;
 }
+
+.authvkForm{
+    text-align: center;
+}
+
+.authvkForm__submit{
+    background-image: url('../img/vk-logo.png');
+    background-size: cover;
+    background-color: white;
+    width: 4rem;
+    height: 4rem;
+    border: none;
+    cursor: pointer;
+}
+

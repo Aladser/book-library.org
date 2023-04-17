@@ -20,8 +20,6 @@ if (isset($response->error)) {
 
 $token = $response->access_token; // Токен
 $userId = $response->user_id; // ID авторизовавшегося пользователя
-$_SESSION['userid'] = $userId;
-$_SESSION['vktoken'] = $response->access_token;
 	
 // Формируем запрос
 $params = array(
@@ -34,18 +32,20 @@ if (!$content = @file_get_contents('https://api.vk.com/method/users.get?' . http
 	$error = error_get_last();
 	throw new Exception('HTTP request failed. Error: ' . $error['message']);
 }
-	
+
+$_SESSION['auth'] = 1;
+$_SESSION['vkid'] =  $userId;
 $response = json_decode($content);
 if (isset($response->error)) {
 	throw new Exception('При отправке запроса к API VK возникла ошибка. Error: ' . $response->error . '. Error description: ' . $response->error_description);
 }
 $response = $response->response;
 foreach ($response as $userItem) {
-	$_SESSION['first_name'] = $userItem->first_name; // Имя
-	$_SESSION['last_name'] = $userItem->last_name; // Фамилия
+	$_SESSION['name'] = $userItem->first_name.' '.$userItem->last_name;
 }
 
-$_SESSION['auth'] = 1;
-setcookie('name', $_SESSION['first_name'].' '.$_SESSION['last_name'], time()+60*60*24, '/');
 setcookie('uservk', 1, time()+60*60*24, '/');
+setcookie('name', $_SESSION['name'], time()+60*60*24, '/');
+setcookie('vkid', $userId, time()+60*60*24, '/');
+
 header('Location: /index.php');
