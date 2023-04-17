@@ -1,5 +1,5 @@
 <?php 
-    require_once('config/config.php');
+    require_once('config/ConfigClass.php');
     session_start();
     include 'engine/auth/auth.php';
 ?>

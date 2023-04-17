@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once(dirname(__DIR__, 2).'/config/config.php');
+require_once(dirname(__DIR__, 2).'/config/ConfigClass.php');
 
 // проверка CSRF-ссылки для авторизации ВК
 if($_POST["token"]){
