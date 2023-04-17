@@ -71,8 +71,7 @@ if($vkId){
 	}
 
 	setcookie('uservk', 1, time()+60*60*24, '/');
-	setcookie('vkid', $_SESSION['vk_login'], time()+60*60*24, '/');
-	setcookie('name', $_SESSION['name'], time()+60*60*24, '/');
+	setcookie('vk_login', $_SESSION['vk_login'], time()+60*60*24, '/');
 }
 
 header('Location: /index.php');

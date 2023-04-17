@@ -31,8 +31,9 @@
         }
         // ВК
         elseif(isset($_COOKIE["uservk"])){
-            $cookieName = $_COOKIE["name"] ?? null;
-            $user = $cookieName;
+            $name = $_COOKIE['vk_login'] ?? null;
+            $query = $db->query("select user_name from vk_users where user_login='$name'");
+            $user = $query->fetch(PDO::FETCH_ASSOC)['user_name'];
             $userRole = 'uservk';
             $_SESSION['auth'] = 1;
         }
