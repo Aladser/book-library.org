@@ -1,5 +1,4 @@
 <?php
-use \table_models\UsersModel;
 
 require_once(dirname(__DIR__, 1).'/engine/table_models/UsersModel.php');
 require_once(dirname(__DIR__, 1).'/engine/DB.php');
@@ -23,7 +22,7 @@ class ConfigClass{
 	function __construct(){
 		$this->LOGS = dirname(__DIR__, 1).'\data\logs.txt';
 		$this->DB = new DB(self::HOST_DB, self::NAME_DB, self::USER_DB, self::PASS_DB);
-		$this->USERS_MODEl = new UsersModel($this->DB);
+		$this->USERS_MODEl = new \table_models\UsersModel($this->DB);
 		$this->LOGS = new MyLogClass($this->LOGS);
 		// запрос получения ВК-кода
 		$vkCodeParams = array(

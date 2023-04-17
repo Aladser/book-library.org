@@ -12,7 +12,7 @@ openLoginWindowBtn.onclick = () => {
     if(openLoginWindowBtn.value === 'Войти') 
         loginInputSection.classList.add('modal_active');
     else
-        location.href = '/engine/auth/auth_db.php?logout=1';
+        location.href = '/engine/auth/logout.php';
 }
 
 //***** авторизация *****//
