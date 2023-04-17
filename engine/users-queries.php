@@ -94,7 +94,7 @@ if(isset($_POST['newLogin'])){
 // Выход
 if(isset($_GET['logout'])){
     unset($_SESSION['auth']);
-    unset($_SESSION['vkid']);
+    unset($_SESSION['vk_login']);
     unset($_SESSION['db_login']);
     unset($_SESSION['name']);
     unset($_SESSION['vktoken']);
