@@ -3,6 +3,7 @@ use \table_models\UsersModel;
 
 require_once(dirname(__DIR__, 1).'/engine/table_models/UsersModel.php');
 require_once(dirname(__DIR__, 1).'/engine/DB.php');
+require_once(dirname(__DIR__, 1).'/engine/MyLogClass.php');
 
 define('LOGS', dirname(__DIR__, 1).'\data\logs.txt');
 
@@ -19,6 +20,7 @@ define('VK_VERSION', 5.131);
 
 $db = new DB(HOST_DB, NAME_DB, USER_DB, PASS_DB);
 $usersModel = new UsersModel($db);
+$logs = new MyLogClass(LOGS);
 
 // запрос получения ВК-кода
 $getVKCodeParams = array(

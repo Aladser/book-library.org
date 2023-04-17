@@ -19,7 +19,7 @@
     <br>
     <div class='registration-container'>
         <h3 class='registration-container__header'>Регистрация нового пользователя</h3>
-        <form class='newUserForm' method="POST" action='../engine/users-queries.php'>
+        <form class='newUserForm' method="POST" action='../engine/auth/auth_db.php'>
             <input type="text" id='newUserForm__loginInput' class='newUserForm__input' name='newLogin' placeholder="Логин">
             <br>
             <input type="password" id='newUserForm__passwordInput' class='newUserForm__input' name='newPassword' placeholder="Пароль">

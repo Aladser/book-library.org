@@ -12,14 +12,14 @@ openLoginWindowBtn.onclick = () => {
     if(openLoginWindowBtn.value === 'Войти') 
         loginInputSection.classList.add('modal_active');
     else
-        location.href = '/engine/users-queries.php?logout=1';
+        location.href = '/engine/auth/auth_db.php?logout=1';
 }
 
 //***** авторизация *****//
 document.querySelector('#loginWindow__form').addEventListener('submit', function(e){
     e.preventDefault();
     let form = new FormData(this);
-    fetch('../engine/users-queries.php', {method: 'POST', body: form}).then(response => response.text()).then(data => {
+    fetch('../engine/auth/auth_db.php', {method: 'POST', body: form}).then(response => response.text()).then(data => {
         if(data !== 'auth') {
             loginWindowError.classList.remove('hidden');
             if(data === 'wrongpass') loginWindowError.innerHTML = 'Неверный пароль';

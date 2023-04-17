@@ -1,7 +1,6 @@
 <?php
 
-require_once(dirname(__DIR__, 1).'/config/config.php');
-require_once(dirname(__DIR__, 1).'/engine/log.php');
+require_once(dirname(__DIR__, 2).'/config/config.php');
 session_start();
 
 // авторизация
@@ -30,17 +29,17 @@ if(isset($_POST['auth']))
                 $rslt = 'auth';
             }
             else {
-                writeLog('Неудачная попытка входа: неверный пароль');
+                $logs->writeLog('Неудачная попытка входа: неверный пароль');
                 $rslt = 'wrongpass';
             }
         }
         else {
-            writeLog('Неудачная попытка входа: указанный пользователь не существует');
+            $logs->writeLog('Неудачная попытка входа: указанный пользователь не существует');
             $rslt = 'nouser';
         }
     }
     else{
-        writeLog('Неудачная попытка входа: двойная попытка входа');
+        $logs->writeLog('Неудачная попытка входа: двойная попытка входа');
         $rslt = 'bootforce';
     }
     echo $rslt;
@@ -71,9 +70,9 @@ if(isset($_POST['newLogin'])){
     }
     // редирект
     if(isset($_SESSION['error'])) 
-        header('Location: ../views/registration_view.php');
+        header('Location: ../../views/registration_view.php');
     else {
-        header('Location: ../index.php');
+        header('Location: ../../index.php');
     }
 }
 
@@ -83,9 +82,11 @@ if(isset($_GET['logout'])){
     unset($_SESSION['vk_login']);
     unset($_SESSION['db_login']);
     unset($_SESSION['vktoken']);
+    
     setcookie("db_login", "", time()-3600, '/');
     setcookie('vk_login', "", time()-1000, '/');
     setcookie("hash", "", time()-3600, '/');
     setcookie('uservk', "", time()-1000, '/');
-    header('Location: ../index.php');
+
+    header('Location: ../../index.php');
 }

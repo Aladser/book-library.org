@@ -39,6 +39,7 @@ class UsersModel extends TableDBModel{
         return $hash;
     }
 
+    // проверить хэш пользователя
     function checkUserHash($login, $hash){
         $query = $this->db->query("select count(*) as count from db_users where user_login = '$login' and user_hash='$hash'");
         $hash = $query->fetch(PDO::FETCH_ASSOC)['count'];
