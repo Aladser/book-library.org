@@ -4,27 +4,28 @@
     $user = null;
     $userRole = null;
     // авторизация через сессию
-    if(isset($_SESSION['login'])){
-        $user = $_SESSION['login'];
-        $userRole = $usersModel->getUserRole($user);
+    if(isset($_SESSION['db_login'])){
+        $user = $_SESSION['db_login'];
+        $userRole = 'user';
+        $_SESSION['auth'] = 1;
     }
     // авторизация вк через сессию
-    elseif(isset($_SESSION['vkid'])){
+    elseif(isset($_SESSION['vk_login'])){
         $user = $_SESSION["name"];
         $userRole = 'uservk';
         $_SESSION['auth'] = 1;
     }
     // авторизация пользователя через куки
     elseif(!isset($_SESSION['auth'])){
-        $cookieLogin = $_COOKIE["login"] ?? null;
+        $cookieLogin = $_COOKIE["db_login"] ?? null;
         $cookieHash = $_COOKIE["hash"] ?? null;
         // БД
         if(!is_null($cookieLogin) && !is_null($cookieHash)){
             if($usersModel->checkUserHash($cookieLogin, $cookieHash)){
                 $user = $cookieLogin;
-                $_SESSION['login'] = $cookieLogin;
+                $_SESSION['db_login'] = $cookieLogin;
                 $_SESSION['hash'] = $cookieHash;
-                $userRole = $usersModel->getUserRole($cookieLogin);
+                $userRole = 'user';
                 $_SESSION['auth'] = 1;
             }
         }

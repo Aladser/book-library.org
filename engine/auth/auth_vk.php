@@ -21,24 +21,21 @@ if(isset($_GET['code'])){
 	}
 	// запись id в сессию
 	else{
-		$_SESSION['vkid'] = $params['vkid'];
+		$_SESSION['vk_login'] = $params['vkid'];
 		$_SESSION['vktoken'] = $params['vktoken'];
 	}
 }
 
-// проверка access_token
-
-
-// провека наличия vkid в сессии или куки
+// провека наличия vk_login в сессии или куки
 $vkId = null;
-if(isset($_SESSION['vkid'])){
+if(isset($_SESSION['vk_login'])){
 	$vkToken = $_SESSION['vktoken'];
-	$vkId = $_SESSION['vkid'];
+	$vkId = $_SESSION['vk_login'];
 }
-elseif(isset($_COOKIE['vkid'])){
+elseif(isset($_COOKIE['vk_login'])){
 	$query = $db->query("select value as vktoken from config where name='vktoken'");
 	$vkToken = $query->fetch(PDO::FETCH_ASSOC)['vktoken'];
-	$vkId = $_COOKIE['vkid'];
+	$vkId = $_COOKIE['vk_login'];
 }
 
 // получение информации о пользователе
@@ -56,7 +53,8 @@ if($vkId){
 	}
 	$response = json_decode($content);
 	if (isset($response->error)) {
-		throw new Exception('При отправке запроса к API VK возникла ошибка. Error: ' . $response->error . '. Error description: ' . $response->error_description);
+		var_dump($response->error);
+		exit;
 	}
 
 	$_SESSION['auth'] = 1;
@@ -68,12 +66,12 @@ if($vkId){
 		$isUser = $isUser->fetch(PDO::FETCH_ASSOC)['count'] === 1;
 		if(!$isUser){
 			$name = $_SESSION['name'];
-			$rslt = $db->exec("insert into vk_users(user_login, user_name, user_role_id) values('$vkId', '$name', 2)");
+			$rslt = $db->exec("insert into vk_users(user_login, user_name) values('$vkId', '$name')");
 		}
 	}
 
 	setcookie('uservk', 1, time()+60*60*24, '/');
-	setcookie('vkid', $_SESSION['vkid'], time()+60*60*24, '/');
+	setcookie('vkid', $_SESSION['vk_login'], time()+60*60*24, '/');
 	setcookie('name', $_SESSION['name'], time()+60*60*24, '/');
 }
 

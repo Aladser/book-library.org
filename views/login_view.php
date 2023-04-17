@@ -8,7 +8,7 @@
 
             <div class='loginWindow__formRow'>
                 <label for="loginInput" class='loginWindow__label'>Логин:</label>
-                <input type='text' class='loginWindow__input loginWindow__loginInput' name='login' id='loginInput' autocomplete='on' value ='user' placeholder="Логин">
+                <input type='text' class='loginWindow__input loginWindow__loginInput' name='db_login' id='loginInput' autocomplete='on' value ='user' placeholder="Логин">
             </div> 
 
             <div class='loginWindow__formRow'>

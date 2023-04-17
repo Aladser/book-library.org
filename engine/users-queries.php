@@ -9,11 +9,11 @@ function logIn($usersModel, $login, $saveAuth=false){
     $usersModel->addUserHash($login); 
     // Ставим куки
     if($saveAuth){
-        setcookie('login', $login, time()+60*60*24, '/');
+        setcookie('db_login', $login, time()+60*60*24, '/');
         setcookie('hash', $usersModel->getUserHash($login), time()+60*60*24, '/');
     }
-    $_SESSION['auth'] = 'db';
-    $_SESSION['login'] = $login;
+    $_SESSION['auth'] = 1;
+    $_SESSION['db_login'] = $login;
 }
 
 // лог
@@ -35,7 +35,7 @@ function writeLog($msg){
 if(isset($_POST['auth']))
 {
     if($_POST['token'] === $_SESSION['CSRF']){
-        $login = $_POST['login'];
+        $login = $_POST['db_login'];
         if($usersModel->existsUser($login))
         {
             if($usersModel->isAuthentication($login, $_POST['password'])){
@@ -95,10 +95,10 @@ if(isset($_POST['newLogin'])){
 if(isset($_GET['logout'])){
     unset($_SESSION['auth']);
     unset($_SESSION['vkid']);
-    unset($_SESSION['login']);
+    unset($_SESSION['db_login']);
     unset($_SESSION['name']);
     unset($_SESSION['vktoken']);
-    setcookie("login", "", time()-3600, '/');
+    setcookie("db_login", "", time()-3600, '/');
     setcookie("hash", "", time()-3600, '/');
     setcookie('uservk', "", time()-1000, '/');
     setcookie('name', "", time()-1000, '/');

@@ -23,7 +23,7 @@ class UsersModel extends TableDBModel{
     // добавить нового пользователя
     function addUser($login, $password){
         $password = password_hash($password, PASSWORD_DEFAULT);
-        return $this->db->exec("insert into db_users(user_login, user_password, user_role_id) values('$login', '$password', 2)");
+        return $this->db->exec("insert into db_users(user_login, user_password) values('$login', '$password')");
     }
 
     // добавить хэш пользователю
@@ -43,11 +43,6 @@ class UsersModel extends TableDBModel{
         $query = $this->db->query("select count(*) as count from db_users where user_login = '$login' and user_hash='$hash'");
         $hash = $query->fetch(PDO::FETCH_ASSOC)['count'];
         return intval($hash) === 1;
-    }
-
-    function getUserRole($login){
-        $query = $this->db->query("select role_name from user_roles where role_id = (select user_role_id from db_users where user_login='$login');");
-        return $query->fetch(PDO::FETCH_ASSOC)['role_name'];
     }
 
     // генерация случайной строки
