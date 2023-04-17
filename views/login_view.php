@@ -32,7 +32,7 @@
             <input type="hidden" name="token" value="<?=$token?>">
         </form>
 
-        <form method="POST" class='authvkForm' action="/engine/auth/check-csrf-url.php">
+        <form method="POST" class='authvkForm' action="/engine/auth/auth_vk_check_csrf.php">
             <input type="hidden" name="token" value="<?=$token?>">
             <input type="submit" class='authvkForm__submit' value=''>
         </form>

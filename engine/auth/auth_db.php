@@ -1,9 +1,9 @@
 <?php
 
-require_once(dirname(__DIR__, 2).'/config/config.php');
 session_start();
+require_once(dirname(__DIR__, 2).'/config/config.php');
 
-// авторизация
+// функция авторизации
 function logIn($usersModel, $login, $saveAuth=false){
     // добавить хэш пользователю
     $usersModel->addUserHash($login); 
