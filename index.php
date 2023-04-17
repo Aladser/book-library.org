@@ -2,8 +2,8 @@
     require_once('config/config.php');
     session_start();
     include 'engine/auth/auth.php';
+    //var_dump($_SESSION);
 ?>
-
     <link rel="stylesheet" href="public_html/css/reset_cs.css">
     <link rel="stylesheet" href="public_html/css/general.css">
     <link rel="stylesheet" href="public_html/css/modal.css">
@@ -18,4 +18,3 @@
 ?>
 
     <script type='text/javascript' src='public_html/js/login.js'></script>
-

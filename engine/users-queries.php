@@ -96,9 +96,12 @@ if(isset($_GET['logout'])){
     unset($_SESSION['auth']);
     unset($_SESSION['vkid']);
     unset($_SESSION['login']);
+    unset($_SESSION['name']);
+    unset($_SESSION['vktoken']);
     setcookie("login", "", time()-3600, '/');
     setcookie("hash", "", time()-3600, '/');
     setcookie('uservk', "", time()-1000, '/');
     setcookie('name', "", time()-1000, '/');
+    setcookie('vkid', "", time()-1000, '/');
     header('Location: ../index.php');
 }
