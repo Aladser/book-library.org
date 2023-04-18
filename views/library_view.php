@@ -1,8 +1,8 @@
 <container class='library-container'>
     <div class='book'>
         <?php if($userRole === 'uservk'): ?>
-                <div class='book_image-block'>
-                <img class='book_image' src="data/img/pikovaya_dama.jpeg" alt="Пиковая дама">
+                <div class='book__image-block'>
+                <img class='book__image' src="data/img/pikovaya_dama.jpeg" alt="Пиковая дама">
             </div>
         <?php endif; ?>
         <br>
@@ -24,8 +24,8 @@
     </div>
     <div class='book'>
         <?php if($userRole === 'uservk'): ?>
-            <div class='book_image-block'>
-                <<img class='book_image' src="data/img/buduschee.jpeg" alt="Будущее">
+            <div class='book__image-block'>
+                <<img class='book__image' src="data/img/buduschee.jpeg" alt="Будущее">
             </div>
         <?php endif; ?>
         <br>
@@ -46,8 +46,8 @@
     </div>
     <div class='book'>
         <?php if($userRole === 'uservk'): ?>
-            <div class='book_image-block'>
-                <img class='book_image' src="data/img/zelenaya_milya.jpeg" alt="Зеленая миля">
+            <div class='book__image-block'>
+                <img class='book__image' src="data/img/zelenaya_milya.jpeg" alt="Зеленая миля">
             </div>
         <?php endif; ?>
         <br>

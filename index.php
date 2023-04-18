@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="public_html/css/header.css">
     <link rel="stylesheet" href="public_html/css/login.css">
     <link rel="stylesheet" href="public_html/css/main-view.css">
+    <link rel="stylesheet" href="public_html/css/library-view.css">
     <input type="hidden" id='loginCsrf' value="<?=$wrongCsrf?>">
     
 <?php
