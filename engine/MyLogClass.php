@@ -2,9 +2,11 @@
 
 class MyLogClass{
     private $logsFolder;
+    private $logsSize;
 
-    function __construct($logsFolder){
+    function __construct($logsFolder, $logsSize=100){
         $this->logsFolder = $logsFolder;
+        $this->logsSize = $logsSize;
     }
 
     function writeLog($msg){
@@ -17,7 +19,7 @@ class MyLogClass{
         }
         // ограничение размера файла логов
         $arr = file($this->logsFolder);
-        if(count($arr)> 100) unset($arr[0]);
+        if(count($arr)> $this->logsSize) unset($arr[0]);
         file_put_contents($this->logsFolder, $arr);
     }
 }
