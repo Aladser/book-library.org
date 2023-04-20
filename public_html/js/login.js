@@ -19,6 +19,7 @@ openLoginWindowBtn.onclick = () => {
 document.querySelector('#loginWindow__form').addEventListener('submit', function(e){
     e.preventDefault();
     let form = new FormData(this);
+    e.target.reset();
     fetch('../engine/auth/auth_db.php', {method: 'POST', body: form}).then(response => response.text()).then(data => {
         if(data !== 'auth') {
             loginWindowError.classList.remove('hidden');

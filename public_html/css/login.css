@@ -26,21 +26,6 @@
     text-align: center;
 }
 
-.loginWindow__btn{
-    background-color: rgb(240, 240, 240);
-    cursor: default;
-    padding: 0.5rem 0;
-    border: 1px solid grey;
-}
-
-.loginWindow__btn:hover:not(:disabled){
-    opacity: 0.75;
-    cursor: pointer;
-}
-.loginWindow__btn:active{
-    cursor: default;
-}
-
 .loginWindow__error{
     text-align: center;
     color: red;
@@ -52,4 +37,27 @@
     padding: 0;
     margin: 0;
     color:red;
+}
+
+.page-social-btn-text-delimiter{
+    color: rgb(58, 179, 249);
+}
+
+.loginWindow__btn{
+    color: rgb(58, 179, 249);
+    background-color: white;
+    cursor: default;
+    padding: 0.5rem 0;
+    border: 1px solid rgb(58, 179, 249);
+}
+.loginWindow__btn:hover:not(:disabled){
+    background-color: rgb(58, 179, 249);
+    color: white;
+    opacity: 0.75;
+    cursor: pointer;
+}
+.loginWindow__btn:active{
+    cursor: default;
+    color: rgb(58, 179, 249);
+    background-color: white;
 }
