@@ -68,7 +68,7 @@
     text-shadow: 0 0 4px white;
 }
 
-@media (max-width: 550px){
+@media (max-width: 530px){
     .loginWindow{
         width: 100%;
     }
