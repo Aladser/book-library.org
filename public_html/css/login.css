@@ -15,46 +15,26 @@
     text-align: center;
 }
 
-.loginWindow__formRow{
-    width: 20rem;
-    margin: auto;
-    margin-bottom: 5px;
-    display: flex;
-}
-
-.loginWindow__label{
-    width: 6rem;
-    text-align: left;
-    padding: 0.4rem;
-    padding-right: 1rem;
-}
-.loginWindow__input{
+.loginWindow__input, .loginWindow__btn{
+    margin-bottom: 1rem;
     width: 80%;
 }
 
-.loginWindow__btnRow{
-    padding: 1vh 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.loginWindow__input{
+    padding: 0.5rem;
+    font-size: 1.3rem;
+    text-align: center;
 }
 
 .loginWindow__btn{
-    background-color: white;
-    border: 1px solid grey;
-    padding: 0.4vw;
-    cursor: pointer;
-}
-
-.loginWindow__btn{
-    background-color: white;
-    height: 2rem;
-    width: 6rem;
+    background-color: rgb(240, 240, 240);
     cursor: default;
+    padding: 0.5rem 0;
+    border: 1px solid grey;
 }
 
 .loginWindow__btn:hover:not(:disabled){
-    opacity: 0.5;
+    opacity: 0.75;
     cursor: pointer;
 }
 .loginWindow__btn:active{
@@ -66,10 +46,6 @@
     color: red;
     font-weight: bold;
     padding-top: 1rem;
-}
-
-.loginWindow__input{
-    padding: 0.2rem;
 }
 
 .loginWindow__saveAuth{
