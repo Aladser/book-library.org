@@ -10,9 +10,11 @@
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 2rem;
     color:rgb(58, 179, 249);
+    padding: 0 1rem;
+
     width: 7rem;
     height:100%;
-    padding: 0 1rem;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,8 +23,10 @@
     position: absolute;
     top: 0;
     right: 0;
+
     height: 100%;
     width: 10%;
+
     border:none;
     border-left: 1px solid rgb(58, 179, 249);
     font-size: 1.2rem;
@@ -31,14 +35,15 @@
     color: rgb(58, 179, 249);
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.3rem;
-    height: 100%;
-    width: 10%;
     cursor: default;
     padding-right: 1rem;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    height: 100%;
+    width: 10%;
 
     position: absolute;
     top: 0;
@@ -48,11 +53,14 @@
     position: absolute;
     top: 0;
     right: 20%;
+
     height: 3rem;
     width: 10%;
+
     border: none;
     border-left: 1px solid rgb(58, 179, 249);
     border-right: 1px solid rgb(58, 179, 249);
+    
     font-size: 1rem;
 }
 

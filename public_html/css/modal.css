@@ -36,11 +36,7 @@
   position: relative;
 }
 
-.modal__header{
-  text-align: center;
-}
-
-.modal__closeBtn{
+.modalWindow__closeBtn{
   position: absolute;
   right: 0;
   top: 0;

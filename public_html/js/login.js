@@ -1,8 +1,8 @@
 const openLoginWindowBtn = document.querySelector('#login-btn');         // Кнопка Войти на главной странице 
-const loginInputSection = document.querySelector('#loginInputSection');  // модальное окно входа/регистрации
-const loginWindowError = document.querySelector('.loginWindow__error');  // поле ошибки входа
+const loginInputSection = document.querySelector('#loginInputSection');  // модальное окно входа
+const loginWindowError = document.querySelector('#loginWindow__error');  // поле ошибки входа
 document.querySelector('#loginWindow__regBtn').onclick = () => location.href = '../views/registration_view.php'; // кнопка регистрации
-document.querySelector('.loginWindow__closeBtn').onclick = () => {
+document.querySelector('#modalWindow__closeBtn').onclick = () => {
     loginInputSection.classList.remove('modal_active'); // кнопка закрытия модального окна
     loginWindowError.classList.add('hidden');
 }
