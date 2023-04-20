@@ -1,10 +1,14 @@
 const openLoginWindowBtn = document.querySelector('#login-btn');         // Кнопка Войти на главной странице 
+
 const loginInputSection = document.querySelector('#loginInputSection');  // модальное окно входа
-const loginWindowError = document.querySelector('#loginWindow__error');  // поле ошибки входа
+
+const errorSection = document.querySelector('#error-section');  // секция ошибки
+const errorOutput = document.querySelector('#error-section_text');  // поле ошибки 
+
 document.querySelector('#loginWindow__regBtn').onclick = () => location.href = '../views/registration_view.php'; // кнопка регистрации
 document.querySelector('#modalWindow__closeBtn').onclick = () => {
     loginInputSection.classList.remove('modal_active'); // кнопка закрытия модального окна
-    loginWindowError.classList.add('hidden');
+    errorSection.classList.add('hidden');
 }
 
 //Кнопка Открыть модальное окно/Выйти главной страницы
@@ -22,10 +26,10 @@ document.querySelector('#loginWindow__form').addEventListener('submit', function
     e.target.reset();
     fetch('../engine/auth/auth_db.php', {method: 'POST', body: form}).then(response => response.text()).then(data => {
         if(data !== 'auth') {
-            loginWindowError.classList.remove('hidden');
-            if(data === 'wrongpass') loginWindowError.innerHTML = 'Неверный пароль';
-            else if(data === 'nouser') loginWindowError.innerHTML = 'Пользователь не найден';
-            else loginWindowError.innerHTML = 'Двойная попытка входа';
+            errorSection .classList.remove('hidden');
+            if(data === 'wrongpass') errorOutput.innerHTML = 'Неверный пароль';
+            else if(data === 'nouser') errorOutput.innerHTML = 'Пользователь не найден';
+            else errorOutput.innerHTML = 'Двойная попытка входа';
         }
         else{
             location.href = '/index.php';

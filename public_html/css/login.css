@@ -9,6 +9,7 @@
 
 .loginWindow__header{
     text-align: center;
+    padding: 0;
 }  
 
 .loginWindow__form{
@@ -24,13 +25,6 @@
     padding: 0.5rem;
     font-size: 1.3rem;
     text-align: center;
-}
-
-.loginWindow__error{
-    text-align: center;
-    color: red;
-    font-weight: bold;
-    padding-top: 1rem;
 }
 
 .loginWindow__saveAuth{
@@ -60,4 +54,22 @@
     cursor: default;
     color: rgb(58, 179, 249);
     background-color: white;
+}
+
+.error-section{
+    background-color: rgb(102, 102, 102);
+}
+
+.error-section_text{
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    padding-top: 1rem;
+    text-shadow: 0 0 4px white;
+}
+
+@media (max-width: 550px){
+    .loginWindow{
+        width: 100%;
+    }
 }

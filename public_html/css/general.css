@@ -19,6 +19,7 @@
 
 .hidden{
     display: none;
+    visibility: hidden;
 }
 
 .page-social-btn-text-delimiter{

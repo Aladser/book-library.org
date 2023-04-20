@@ -1,6 +1,6 @@
 <!-- модальное окно входа -->
 <container id='loginInputSection' class='modal'>
-    <container class='modalWindow loginWindow'>
+    <section class='modalWindow loginWindow'>
         <input type='button' class='modalWindow__closeBtn' id='modalWindow__closeBtn' value='x'>
         <h3 class='loginWindow__header'> Авторизация</h3>
 
@@ -14,8 +14,7 @@
             <input type='button' class='loginWindow__btn' id='loginWindow__regBtn' value='Регистрация'> 
             <br>
             <input type="checkbox" class='loginWindow__saveAuth' id="loginWindow__saveAuth" name="saveAuth" checked/>
-            <label for="loginWindow__saveAuth">Запомнить меня</label>   
-            <p class='loginWindow__error hidden' id='loginWindow__error'>Ошибка</p>         
+            <label for="loginWindow__saveAuth">Запомнить меня</label>        
             <? // auth и токен ?>
             <input type="hidden" name="auth" value=1>
             <input type="hidden" name="token" value="<?=$token?>">
@@ -27,5 +26,9 @@
             <input type="hidden" name="token" value="<?=$token?>">
             <input type="submit" class='authvkForm__submit' value=''>
         </form>
-    </container>
+    </section>
+
+    <section class='modalWindow loginWindow error-section hidden' id='error-section'>
+        <p class='error-section_text' id='error-section_text'>Ошибка</p> 
+    </section>
 </container>
